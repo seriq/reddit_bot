@@ -1,10 +1,8 @@
-use std::process;
-
-fn main() {
-    let err = match reddit_bot::run() {
+#[tokio::main]
+async fn main() {
+    let err = match reddit_bot::run().await {
         Err(it) => it,
         _ => return,
     };
     println!("error running example: {}", err);
-    process::exit(1);
 }
